@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DeviceService } from '../../service/device/device.service'
+import { Device } from 'src/app/model/interface/device';
+import { DeviceService } from '../service/device.service'
 
 @Component({
     selector: 'app-device-view',
@@ -9,7 +10,7 @@ import { DeviceService } from '../../service/device/device.service'
 export class DeviceViewComponent implements OnInit {
 
     service: DeviceService;
-    devices!: any[];
+    devices!: Device[];
 
     constructor(service: DeviceService) {
         this.service = service;

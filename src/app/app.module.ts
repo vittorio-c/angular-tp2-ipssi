@@ -4,18 +4,18 @@ import { Routes } from '@angular/router'
 import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './component/home/home.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
-import { FourOhFourComponent } from './component/four-oh-four/four-oh-four.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FourOhFourComponent } from './components/four-oh-four/four-oh-four.component';
 
 const appRoutes: Routes = [
     {
         path: 'devices',
-        loadChildren: () => import('./device/device.module').then(m => m.DeviceModule)
+        loadChildren: () => import('./modules/device/device.module').then(m => m.DeviceModule)
     },
     {
         path: 'blog',
-        loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
+        loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule)
     },
     {
         path: 'not-found',
@@ -23,7 +23,7 @@ const appRoutes: Routes = [
     },
     {
         path: '',
-        component: HomeComponent
+        loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
     },
     {
         path: '**',

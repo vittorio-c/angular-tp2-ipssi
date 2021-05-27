@@ -1,0 +1,12 @@
+<div class="device-card">
+    <p>{{ deviceName }}</p>
+    <div>
+        <button class="device-card__status" [class]="{'device-card__status--selected' : deviceStatus === 'on'}" (click)="on()">
+            On
+        </button>
+        <button class="device-card__status" [class]="{'device-card__status--selected' : deviceStatus === 'off'}" (click)="off()" >
+            Off
+        </button>
+    </div>
+    <p>Last run : {{ lastRun | date: 'EEEE, MMMM d, y' }} </p>
+</div>
