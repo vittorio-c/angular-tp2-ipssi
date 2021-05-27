@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
 import { DeviceComponent } from './device/device.component'
 import { DeviceViewComponent } from './device-view/device-view.component'
+
+const routes: Routes = [
+    { path: '', component: DeviceViewComponent }
+];
 
 @NgModule({
     declarations: [
@@ -9,10 +14,11 @@ import { DeviceViewComponent } from './device-view/device-view.component'
         DeviceViewComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        RouterModule.forChild(routes)
     ],
     exports: [
-        DeviceComponent
+        DeviceViewComponent
     ]
 })
 export class DeviceModule { }
