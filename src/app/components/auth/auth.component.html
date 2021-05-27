@@ -1,0 +1,23 @@
+<div>
+    <div
+        class="login-button"
+        *ngIf="!authStatus; else signOutButton"
+        [class]="{'signin-button' : !authStatus}"
+        (click)="onSignIn()">
+        <span *ngIf="!loading; else loadingAnimation">Sign in</span>
+        <ng-template #loadingAnimation>
+            <div class="loader"></div>
+        </ng-template>
+    </div>
+    <ng-template #signOutButton>
+        <div
+            class="login-button"
+            [class]="{'signout-button' : authStatus}"
+            (click)="onSignOut()">
+            <span *ngIf="!loading; else loadingAnimation">Sign out</span>
+            <ng-template #loadingAnimation>
+                <div class="loader"></div>
+            </ng-template>
+        </div>
+    </ng-template>
+</div>

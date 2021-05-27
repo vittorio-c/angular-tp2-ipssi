@@ -4,9 +4,9 @@ import { Routes } from '@angular/router'
 import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FourOhFourComponent } from './components/four-oh-four/four-oh-four.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 const appRoutes: Routes = [
     {
@@ -34,9 +34,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     NavbarComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
