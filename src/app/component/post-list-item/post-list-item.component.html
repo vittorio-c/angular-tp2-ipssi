@@ -1,0 +1,15 @@
+<li>
+    <div style="width: 18rem;">
+        <div>
+            <div>
+                <h5>{{post.title}}</h5>
+                <span>{{post.created_at | date:'short'}}</span>
+            </div>
+            <h6>♡ {{post.loveIts}}</h6>
+            <h6>:-( {{post.hateIts}}</h6>
+            <p>{{post.content}}</p>
+            <button (click)="loveIt()">Love it </button>
+            <button (click)="hateIt()">Hate it</button>
+        </div>
+    </div>
+</li>

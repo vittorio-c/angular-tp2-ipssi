@@ -1,0 +1,11 @@
+<div class="device-card">
+    <p>{{ deviceName }}</p>
+    <div>
+        <div class="device-card__status" [class]="{'device-card__status--selected' : deviceStatus === 'on'}" (click)="on()">
+            On
+        </div>
+        <div class="device-card__status" [class]="{'device-card__status--selected' : deviceStatus === 'off'}" (click)="off()" >
+            Off
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div>
+    <app-device
+        *ngFor="let device of devices"
+        [deviceName] = "device.name"
+        [deviceStatus] = "device.status"
+        >
+    </app-device>
+
+    <button (click)="switchOnAll()">Switch ON all</button>
+    <button (click)="switchOffAll()">Switch OFF all</button>
+</div>
