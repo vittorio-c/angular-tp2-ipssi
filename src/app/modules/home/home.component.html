@@ -1,1 +1,6 @@
-<p>Welcome to the best app ever, please sign in to see content</p>
+<div *ngIf="isAuth; else inviteToSignIng">
+    <p>Welcome to the best app ever, you are now signed in, you can visite the pages !</p>
+</div>
+<ng-template #inviteToSignIng>
+    <p>Welcome to the best app ever, please sign in to see content :-)</p>
+</ng-template>

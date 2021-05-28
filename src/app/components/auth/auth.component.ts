@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
                 console.log(success);
                 this.authStatus = this.service.isAuth;
                 this.loading = false;
-                this.router.navigate(['devices']);
+                this.router.navigate(['']);
             },
 
             (failure) => {
