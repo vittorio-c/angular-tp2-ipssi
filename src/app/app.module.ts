@@ -29,6 +29,11 @@ const appRoutes: Routes = [
         loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
     },
     {
+        path: 'users',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
+    },
+    {
         path: '**',
         redirectTo: 'not-found'
     },

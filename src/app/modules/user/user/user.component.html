@@ -1,0 +1,15 @@
+<div class="user-container">
+    <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+    <p>Email : <a [href]="'mailto:'+user.email">{{ user.email }}</a></p>
+    <p>Prefered drink <strong>{{ user.drinkPref }}</strong></p>
+    <div
+        *ngIf="user.hobbies!.length > 0"
+        >
+        List of hobbies :
+        <ul>
+            <li
+                *ngFor="let hobby of user.hobbies"
+                >{{ hobby }}</li>
+        </ul>
+    </div>
+</div>
