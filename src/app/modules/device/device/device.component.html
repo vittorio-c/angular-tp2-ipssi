@@ -1,5 +1,5 @@
 <div class="device-card">
-    <p>{{ deviceName }}</p>
+    <p>{{ deviceName }} <span><a [routerLink]="[deviceId]">More details</a></span></p>
     <div>
         <button class="device-card__status" [class]="{'device-card__status--selected' : deviceStatus === 'on'}" (click)="on()">
             On

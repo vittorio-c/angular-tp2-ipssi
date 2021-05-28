@@ -16,6 +16,9 @@ export class DeviceComponent implements OnInit {
     @Input()
     lastRun!: string;
 
+    @Input()
+    deviceId!: number;
+
     constructor() { }
 
     ngOnInit(): void {
