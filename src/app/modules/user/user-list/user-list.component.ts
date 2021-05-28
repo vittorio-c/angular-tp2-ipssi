@@ -11,7 +11,9 @@ import {UserService} from '../service/user.service';
 export class UserListComponent implements OnInit, OnDestroy {
 
     users!: User[];
+    availableHobbies!: any[];
     userSubscription!: Subscription;
+    showAddUserModal: boolean = false;
 
     constructor(private service: UserService) { }
 
@@ -20,6 +22,7 @@ export class UserListComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        this.availableHobbies = this.service.hobbies;
         this.userSubscription = this.service.userSubject.subscribe(
             (users: User[]) => {
                 this.users = users;
@@ -27,5 +30,14 @@ export class UserListComponent implements OnInit, OnDestroy {
         );
 
         this.service.emitUserSubject();
+    }
+
+    showModal() {
+        this.showAddUserModal = true;
+    }
+
+    closeModal() {
+        console.log('closing from parent')
+        this.showAddUserModal = false;
     }
 }

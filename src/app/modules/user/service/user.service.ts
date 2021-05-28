@@ -39,8 +39,22 @@ export class UserService {
         }
     ]
 
+    hobbies: any[] = [
+        {
+            slug: 'watch-tv',
+            name: 'Watching television'
+        },
+        {
+            slug: 'running',
+            name: 'Running'
+        },
+        {
+            slug: 'sleeping',
+            name: 'Sleeping',
+        }
+    ]
+
     emitUserSubject() {
-        // Retourne une COPIE de l'array existant
         this.userSubject.next(this.users.slice());
     }
 
@@ -48,33 +62,6 @@ export class UserService {
         this.users.push(user);
         this.emitUserSubject();
     }
-
-    /* switchOffAll(): void { */
-    /*     this.users.forEach((user) => { */
-    /*         this.off(user); */
-    /*     }) */
-    /* } */
-
-    /* switchOnAll(): void { */
-    /*     this.users.forEach((user) => { */
-    /*         this.on(user); */
-    /*     }) */
-    /* } */
-
-    /* on(user: User): void { */
-    /*     this.switch(user, 'on') */
-    /* } */
-
-    /* off(user: User): void { */
-    /*     this.switch(user, 'off') */
-    /* } */
-
-    /* switch(user: User, status: string): void { */
-    /*     let objIndex = this.users.findIndex((obj) => obj.id == user.id); */
-    /*     this.users[objIndex].status = status; */
-
-    /*     this.emitUserSubject(); */
-    /* } */
 
     getUserById(id: number) {
         const user = this.users.find(

@@ -1,7 +1,13 @@
-<div class="user-list-container">
-    <app-user
-        *ngFor="let user of users"
-        [user] = "user"
-        >
-    </app-user>
+<div>
+    <button (click)="showModal()">Add user</button>
+    <div class="user-list-container">
+        <app-user
+            *ngFor="let user of users"
+            [user] = "user"
+            >
+        </app-user>
+    </div>
+    <app-modal [open]="showAddUserModal" (modalClosed)="closeModal()">
+        <app-user-add [hobbies]="availableHobbies" (userAdded)="closeModal()"></app-user-add>
+    </app-modal>
 </div>

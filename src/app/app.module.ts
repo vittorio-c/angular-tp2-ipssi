@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FourOhFourComponent } from './components/four-oh-four/four-oh-four.component';
 import { AuthComponent } from './components/auth/auth.component';
 import {AuthGuard} from './services/guard/guard';
+import {FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
     {
@@ -40,17 +41,18 @@ const appRoutes: Routes = [
 ]
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    FourOhFourComponent,
-    AuthComponent
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        FourOhFourComponent,
+        AuthComponent,
+    ],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(appRoutes),
+        FormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
