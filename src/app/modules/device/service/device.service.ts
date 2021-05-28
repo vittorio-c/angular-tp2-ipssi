@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Device } from 'src/app/model/interface/device';
+import { Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -8,7 +9,9 @@ export class DeviceService {
 
     constructor() { }
 
-    devices: Device[] = [
+    deviceSubject = new Subject<Device[]>();
+
+    private devices: Device[] = [
         {
             id: 1,
             name: 'Washing machine',
@@ -39,16 +42,36 @@ export class DeviceService {
         },
     ]
 
-    switchOnAll(): void {
-        this.devices.forEach((device) => {
-            device.status = 'on'
-        })
+    emitDeviceSubject() {
+        // Retourne une COPIE de l'array existant
+        this.deviceSubject.next(this.devices.slice());
     }
 
     switchOffAll(): void {
         this.devices.forEach((device) => {
-            device.status = 'off'
+            this.off(device);
         })
+    }
+
+    switchOnAll(): void {
+        this.devices.forEach((device) => {
+            this.on(device);
+        })
+    }
+
+    on(device: Device): void {
+        this.switch(device, 'on')
+    }
+
+    off(device: Device): void {
+        this.switch(device, 'off')
+    }
+
+    switch(device: Device, status: string): void {
+        let objIndex = this.devices.findIndex((obj) => obj.id == device.id);
+        this.devices[objIndex].status = status;
+
+        this.emitDeviceSubject();
     }
 
     getDeviceById(id: number) {

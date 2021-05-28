@@ -3,10 +3,7 @@
     <button (click)="switchOffAll()">Switch OFF all</button>
     <app-device
         *ngFor="let device of devices"
-        [deviceName] = "device.name"
-        [deviceStatus] = "device.status"
-        [lastRun] = "device.lastRun"
-        [deviceId] = "device.id"
+        [device] = "device"
         >
     </app-device>
 </div>
