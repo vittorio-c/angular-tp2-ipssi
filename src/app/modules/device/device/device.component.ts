@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Device} from 'src/app/model/interface/device';
+import {DeviceService} from '../service/device.service';
 
 @Component({
     selector: 'app-device',
@@ -7,32 +9,30 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DeviceComponent implements OnInit {
 
-    @Input()
-    deviceName!: string;
+    /* @Input() */
+    /* deviceName!: string; */
 
-    @Input()
-    deviceStatus!: string;
+    /* @Input() */
+    /* deviceStatus!: string; */
 
-    @Input()
-    lastRun!: string;
+    /* @Input() */
+    /* lastRun!: string; */
 
+    /* @Input() */
+    /* deviceId!: number; */
     @Input()
-    deviceId!: number;
+    device!: Device;
 
-    constructor() { }
+    constructor(private service: DeviceService) { }
 
     ngOnInit(): void {
     }
 
     on(): void {
-        this.switch('on')
+        this.service.on(this.device);
     }
 
     off(): void {
-        this.switch('off')
-    }
-
-    switch(status: string): void {
-        this.deviceStatus = status
+        this.service.off(this.device);
     }
 }

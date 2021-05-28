@@ -1,12 +1,12 @@
 <div class="device-card">
-    <p>{{ deviceName }} <span><a [routerLink]="[deviceId]">More details</a></span></p>
+    <p>{{ device.name }} <span><a [routerLink]="[device.id]">More details</a></span></p>
     <div>
-        <button class="device-card__status" [class]="{'device-card__status--selected' : deviceStatus === 'on'}" (click)="on()">
+        <button class="device-card__status" [class]="{'device-card__status--selected' : device.status === 'on'}" (click)="on()">
             On
         </button>
-        <button class="device-card__status" [class]="{'device-card__status--selected' : deviceStatus === 'off'}" (click)="off()" >
+        <button class="device-card__status" [class]="{'device-card__status--selected' : device.status === 'off'}" (click)="off()" >
             Off
         </button>
     </div>
-    <p>Last run : {{ lastRun | date: 'EEEE, MMMM d, y' }} </p>
+    <p>Last run : {{ device.lastRun | date: 'EEEE, MMMM d, y' }} </p>
 </div>

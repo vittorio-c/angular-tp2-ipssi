@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div>
+        <label for="firstName">
+            User first name
+        </label>
+        <input type="text" id="firstName" name="firstName" ngModel>
+    </div>
+    <div>
+        <label for="lastName">
+            User last name
+        </label>
+        <input type="text" id="lastName" name="lastName" ngModel>
+    </div>
+    <div >
+        <label for="email">
+            Email
+        </label>
+        <input type="text" id="email" name="email" ngModel>
+    </div>
+    <div >
+        <label for="drinkPref">
+            Prefered beverage
+        </label>
+        <input type="text" id="drinkPref" name="drinkPref" ngModel>
+    </div>
+    <div >
+        <label for="drinkPref">
+            Hobbies
+        </label>
+        <select id="hobbies" name="hobbies" ngModel>
+            <option *ngFor="let hobby of hobbies" [value]="hobby.slug">{{ hobby.name }}</option>
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Enregistrer</button>
+</form>
